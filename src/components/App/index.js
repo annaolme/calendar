@@ -12,12 +12,12 @@ border-left: 1px solid #464648;
 border-right: 1px solid #464648;
 border-bottom: 2px solid #464648;
 border-radius: 8px;
-overFlow:hidden;
+overFlow: hidden;
 box-shadow: 0 0 0 1px #1A1A1A, 0 8px 20px 6px #888;
 `;
 
 const FormPositionWrapper = styled('div')`
-position :absolute;
+position: absolute;
 z-index: 100;
 background-color: rgba(0, 0, 0, 0.35);
 top: 0;
@@ -25,19 +25,19 @@ right: 0;
 bottom: 0;
 left: 0;
 display: flex;
-alighn-items: center;
+align-items: center;
 justify-content: center;
 `;
 
 const FormWrapper = styled(ShadowWrapper)`
-width: 200px;
+width: 320px;
 background-color: #1E1F21;
 color: #DDDDDD;
 box-shadow: unset;
 `;
 
 const EventTitle = styled('input')`
-padding: 4px 14px;
+padding: 8px 14px;
 font-size: .85.rem;
 width: 100%;
 border: unset;
@@ -47,8 +47,8 @@ outline: unset;
 border-bottom: 1px solid #464648;
 `;
 
-const EventBody = styled('input')`
-padding: 4px 14px;
+const EventBody = styled('textarea')`
+padding: 8px 14px;
 font-size: .85.rem;
 width: 100%;
 border: unset;
@@ -56,6 +56,8 @@ background-color: #1E1F21;
 color: #DDDDDD;
 outline: unset;
 border-bottom: 1px solid #464648;
+resize: none;
+height: 60px;
 `;
 
 const ButtonsWrapper = styled('div')`
@@ -100,10 +102,10 @@ useEffect(() => {
   .then(res => setEvents(res));
   }, [today]);
 
-  const openFormHandler = (methodName, eventForUpdate) => {
+  const openFormHandler = (methodName, eventForUpdate, dayItem) => {
     console.log('onDoubleClick', methodName);
     setShowForm(true);
-    setEvent(eventForUpdate || defaultEvent);
+    setEvent(eventForUpdate || {...defaultEvent, date: dayItem.format('X')}); //todo
     setMethod(methodName);
   }
 
@@ -117,6 +119,25 @@ useEffect(() => {
       ...prevState,
       [field]: text
     }))
+  }
+
+  const removeEventHandler = () => {
+    const fetchUrl = `${url}/events/${event.id}`;
+    const httpMethod = 'DELETE';
+
+    fetch(fetchUrl, {
+      method: httpMethod,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+
+    })
+    .then(res => res.json())
+    .then(res => {
+      console.log(res);
+      setEvents(prevState => prevState.filter(eventEl => eventEl.id !== event.id))
+      cancelButtonHandler()
+    })
   }
 
   const eventFetchHandler = () => {
@@ -134,14 +155,14 @@ useEffect(() => {
     .then(res => {
       console.log(res);
       if(method === 'Update') {
-        setEvents(prevState => prevState.map(eventEl => eventEl.id === res.id ? res : eventEl))
+      setEvents(prevState => prevState.map(eventEl => eventEl.id === res.id ? res : eventEl))
       } else {
-        setEvents(prevState => [...prevState, res]);
-       }
-      
+        setEvents(prevState => [...prevState, res])
+      }
       cancelButtonHandler()
     })
   }
+
     return ( 
       <>
       {
@@ -151,14 +172,22 @@ useEffect(() => {
             <EventTitle 
             value={event.title} 
             onChange={e => changeEventHandler(e.target.value, 'title')}
+            placeholder="Title"
             />
             <EventBody 
             value={event.description}
             onChange={e => changeEventHandler(e.target.value, 'description')}
+            placeholder="Description"
             />
             <ButtonsWrapper>
               <button onClick={cancelButtonHandler}>Cancel</button>
               <button onClick={eventFetchHandler}>{method}</button>
+              {
+                method === 'Update' ? (
+                  <button onClick={removeEventHandler}>Remove</button>
+                ) : null
+              }
+              
             </ButtonsWrapper>
             </FormWrapper>
             </FormPositionWrapper>

@@ -2,96 +2,105 @@
   "events": [
     {
       "id": 1,
-      "title": "Go to the bath",
-      "description": "Go to the bath",
+      "title": "17:00 sauna Tammela",
+      "description": "sauna",
       "date": 1673521979
     },
     {
       "id": 2,
-      "title": "Go to the bed",
-      "description": "Go to the bed",
+      "title": "18:00 sauna Kekäläinen",
+      "description": "sauna",
       "date": 1673694779
     },
     {
       "id": 3,
-      "title": "Make 7-6-th lesson",
-      "description": "Make 7-th lesson",
+      "title": "17:00 sauna  Hyvönen",
+      "description": "sauna",
       "date": 1673953979
     },
     {
-      "id": 4
+      "id": 4,
+      "title": "18:00 sauna  Pukkonen",
+      "description": "sauna",
+      "date": 1674126779
     },
     {
-      "id": 5
+      "id": 5,
+      "title": "18:00 sauna  Toppinen",
+      "description": "sauna",
+      "date": 1674299579
     },
     {
-      "id": 6
+      "id": 6,
+      "title": "19:00 sauna  Hoikkala",
+      "description": "sauna",
+      "date": 1674904379
     },
     {
-      "id": 7
+      "id": 7,
+      "title": "17:00 sauna  Hoikkala",
+      "description": "sauna",
+      "date": 1674731579
     },
     {
-      "id": 8
-    },
-    {
-      "id": 9
-    },
-    {
-      "id": 10
-    },
-    {
-      "id": 11
-    },
-    {
-      "id": 12
-    },
-    {
-      "id": 13
-    },
-    {
-      "id": 14
-    },
-    {
-      "id": 15
-    },
-    {
-      "id": 16
-    },
-    {
-      "id": 17
-    },
-    {
-      "id": 18
-    },
-    {
-      "title": "",
-      "description": "",
-      "date": "1673547149",
-      "id": 19
-    },
-    {
-      "title": "new text",
-      "description": "new text",
-      "date": "1673547149",
-      "id": 20
-    },
-    {
-      "title": "sauna booking",
+      "title": "19:00 sauna Pekkonen",
       "description": "",
       "date": "1673547447",
       "id": 21
     },
     {
-      "title": "sauna",
+      "title": "18:00 sauna Björk",
       "description": "",
-      "date": "1673547447",
+      "date": "1675288800",
       "id": 22
     },
     {
-      "title": "sauna",
+      "title": "19:00 sauna Tiisma",
       "description": "",
-      "date": "1673547890",
+      "date": "1676498400",
       "id": 23
+    },
+    {
+      "id": 24
+    },
+    {
+      "id": 25
+    },
+    {
+      "id": 26
+    },
+    {
+      "id": 27
+    },
+    {
+      "id": 28
+    },
+    {
+      "id": 29
+    },
+    {
+      "id": 30
+    },
+    {
+      "id": 31
+    },
+    {
+      "title": "18:00",
+      "description": "",
+      "date": "1675375200",
+      "id": 32
+    },
+    {
+      "title": "17:00 Olme",
+      "description": "",
+      "date": "1675116000",
+      "id": 33
+    },
+    {
+      "title": "18:00",
+      "description": "",
+      "date": "1673560800",
+      "id": 34
     }
   ]
 }

@@ -8,7 +8,7 @@ grid-template-columns: repeat(7, 1fr);
 grid-gap: 1px;
 background-color: ${props => props.isHeader ? '#1E1F21' : '#4D4C4D'};
 grid-gap: 1px;
-${props => props.isHeader && 'border-bottom: 1px solid #4D4C4D '}
+${props => props.isHeader && 'border-bottom: 1px solid #4D4C4D'}
 `;
 
 const CellWrapper = styled.div`
@@ -99,7 +99,7 @@ const CalendarGrid = ({startDay, today, totalDays, events, openFormHandler}) => 
                     >
                         <RowInCell justifyContent={'flex-end'}>
                             <ShowDayWrapper>
-                            <DayWrapper onDoubleClick={() => openFormHandler('Create')} >
+                            <DayWrapper onDoubleClick={() => openFormHandler('Create', null, dayItem)} >
                                 {
                                   isCurrentDay(dayItem) ? (
                                     <CurrentDay>{dayItem.format('D')}</CurrentDay>
